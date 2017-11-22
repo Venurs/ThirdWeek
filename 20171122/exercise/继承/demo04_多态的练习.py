@@ -13,6 +13,8 @@
     name属性：
 定义子类：Cat类，Dog类
 """
+
+
 class Girl:
 
     def __init__(self, name):
@@ -37,14 +39,16 @@ class Pet:  # 宠物的父类
     def sleep(self):
         print("%s,玩累了，休息一下。。" % self.name)
 
+
 class Cat(Pet):
 
     def __init__(self, name, color):
         super().__init__(name)
         self.color = color
 
-    def eat(self): # 重写方法
+    def eat(self):  # 重写方法
         print("%s,小猫吃鱼。。" % self.name)
+
 
 class Dog(Pet):
 
@@ -59,3 +63,4 @@ g1.play_with_pet(c1)
 g2 = Girl("如梦")
 d1 = Dog("啸天")
 g2.play_with_pet(d1)
+
