@@ -89,7 +89,7 @@
 class Person:
 
     def __init__(self, name):
-        self.name = name  # 定义实例属性
+        self.__name = name  # 定义实例属性
 
     @property  # 定义一个特性,注意点：self._特性名
     def age(self):

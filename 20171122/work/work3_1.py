@@ -22,24 +22,24 @@ class Solider:
     def __init__(self, name):
         self.__name = name
 
-    # @property
-    # def name(self):
-    #     return self._name
-    #
-    # @name.setter
-    # def name(self, name):
-    #     self._name = name
-
-    def get_name(self):
+    @property
+    def name(self):
         return self.__name
 
-    def set_name(self, name):
+    @name.setter
+    def name(self, name):
         self.__name = name
 
-    name = property(get_name, set_name)
+    # def get_name(self):
+    #     return self._name
+    #
+    # def set_name(self, name):
+    #     self.__name = name
+    #
+    # name = property(get_name, set_name)
 
     def fire(self, gun):
-        print("用枪开火", gun.name)
+        print("%s用%s开火" % (self.name, gun.name))
 
 
 class Gun:
@@ -72,4 +72,4 @@ class Gun:
 
 solider = Solider("许三多")
 gun = Gun("ak47")
-solider.fire(gun.name)
+solider.fire(gun)

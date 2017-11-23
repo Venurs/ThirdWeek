@@ -19,15 +19,15 @@ class Paint:
 
 class Folwer(Paint):
 
-    def __init__(self, name, nature):
-        super(Folwer, self).__init__(name)
-        self.__nature = nature
+    # def __init__(self, name, nature):
+    #     super(Folwer, self).__init__(name)
+    #     self.__nature = nature
 
     def get_nature(self):
-        return self.__nature
+        return self._nature
 
     def set_neture(self, nature):
-        self.__nature = nature
+        self._nature = nature
 
     nature = property(get_nature, set_neture)
 
@@ -52,7 +52,7 @@ print(pa.name, end=" ")
 pa.name = "红薯"
 print(pa.name)
 
-fo = Folwer("紫藤萝", "花朵")
+fo = Folwer("紫藤萝")
 print(fo.name, end=" ")
 # fo.nature = "好看"
 print(fo.nature)

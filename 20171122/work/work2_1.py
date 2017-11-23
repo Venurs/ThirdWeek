@@ -22,15 +22,15 @@ class TPrantice:
 
     @property
     def name(self):
-        return self._name
+        return self.__name
 
     @name.setter
     def name(self, name):
-        self._name = name
+        self.__name = name
 
     @property
     def age(self):
-        return self._age
+        return self.__age
 
     @age.setter
     def age(self, age):
