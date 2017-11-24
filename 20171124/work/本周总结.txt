@@ -1,0 +1,340 @@
+周一：函数的高级应用
+1.闭包
+	内层函数访问外层函数的局部变量，内层函数和局部变量，统称为闭包
+		内层函数：闭包函数
+
+	闭包：
+		外层函数的返回值是内层函数。内层函数还是调用外层函数的局部变量。
+def outer1():
+	num = 1
+	def inner1():
+		nonlocal num
+		num += 1
+		return num
+	return inner1
+
+res = outer1()  # res = inner1-->函数
+num = res()-->inner1()
+	num = 2
+num = res()-->inner1()
+	num = 3
+	...
+2.闭包的应用
+	惰性求值：
+		迭代器：
+		next(),next()
+	
+	计数器：
+	装饰器：
+	
+3.装饰器
+	A：概念不改变原始函数的情况下，扩展原始函数的功能。
+on = False
+
+def strong1(fun):
+	if on:
+		def new_fun(*args，**kw):#增强
+			# 增强的内容。。。
+			res = fun()
+			return res   # None
+		return new_fun
+	else:
+		return fun	
+
+def strong2(fun):
+	
+@strong2
+@strong1
+def foo(a,b,c):
+	pass
+	return res
+
+
+# foo = strong(foo)
+# foo()
+
+foo()
+	
+	B：动态的添加开关。
+	C：添加 多个装饰器
+	D：装饰带参数的原始函数
+	E：装饰带返回值的原始函数
+	F：通用的装饰器
+	G：装饰器本身带参数。
+
+周二：
+	面向对象
+
+	面向对象的三大特征
+
+
+编程思想：
+	核心：对象()
+
+	A：需求中涉及到了那些对象
+	B：构建类：属性，方法
+	C：类和类的关系
+
+
+量大核心概念：
+	类：同一类事物的抽象描述。只是一个抽象的概念。
+		描述：
+			属性：
+			行为功能：方法
+	对象：类中的一个具体的实例。
+		
+
+	将类进行实例化-->对象
+	将对象的共同特征进行抽取描述-->类
+
+
+class 类名:
+	类属性：属于类，由类调用，内存中唯一。
+	
+	def __init__(self, name, age):
+		self.name = name  # 为对象添加属性
+		self.age = age
+
+	def 实例方法(self):
+		可以访问实例属性，类属性
+
+	@classmethod
+	def 类方法(cls):
+		可以访问类属性
+
+	@staticmethod
+	def 静态方法():
+		不能访问类属性，也不能访问实例属性
+
+
+
+
+对象1 = 类名("王二狗", 20)
+对象2 = 类名("李小花", 18)
+
+创建好对象后，可以通过对象访问属性和方法
+
+对象.属性
+	对象.属性 = 赋值
+	print(对象.属性)
+对象.方法()--->执行该方法
+
+
+__init__(),创建对象后会自动调用，用于初始化实例变量
+__del__(),对象销毁前，自动调用
+__str__(),返回对象的地址。
+__new__(),开辟内存，创建对象
+
+
+私有化：限于本类中访问。
+	__属性，__方法。
+
+	
+提供：set(),get(),用于赋值和取值。
+
+
+特性：property
+	特殊的属性：
+		对应的是get和set
+
+
+
+	普通：对象.属性-->赋值和取值
+
+
+方法一：
+	特性名 = property(get,set)
+
+	对象.特性 = 赋值--->自动执行set方法
+	对象.特性 --- >自动执行get方法。
+
+
+方法二：
+	添加装饰器
+	@property
+	def 特性名():
+		return 
+
+	@特性名.setter
+	def 特性名():
+		
+
+
+三大特征：
+1.封装
+	封装类，封装方法。。-->打包
+	属性，方法，封装到类的里面
+	函数体，封装到函数里
+
+2.继承：两个类的关系
+	父类(基类，超类，superclass)，子类(派生类，扩展类，subclass)
+
+
+	子类继承父类
+	A：子类可以访问父类的非私有的属性和方法
+	B：子类可以新增自己的属性和方法
+	C：子类可以重写(override)父类已有的方法
+
+
+	意义：
+		A：避免重复的代码
+		B：扩展类的功能
+
+
+	子类是一个特殊的父类。
+
+		is - a
+
+class 父类：
+	def eat(self):
+		pass
+
+
+class 子类(父类)：
+
+
+	def eat(self):
+		super().eat()
+		父类名.eat()
+
+
+多继承和多层继承
+
+多继承：多个爹
+	子类具有多个父类所有的功能。
+		多个父类中尽量避免重复的方法名。
+		__mro__
+
+多层继承：继承的传递性
+	A类，B继承A，C继承B
+
+
+
+
+3.多态
+	对象的多种形态：
+	以继承和重写为前提，不同的对象执行的方法也不同(重写或不重写)
+
+class A类
+	pass
+	def test():
+
+class B类(A类)
+	pass
+	def test():
+
+
+
+
+
+
+
+A类对象
+	A对象
+		a.test()-->A类的
+	B对象
+		b.test()-->B重写的
+
+
+鸭子类型：
+
+
+周四：
+	单例模式
+		一个类只能产生一个对象
+		__new__(cls,*args,**kw)--->object类
+		
+		重写new方法
+		if cls.__instance is None :
+			cls.__instance = object.__new__(cls)
+	
+		return cls.__instance
+
+
+		__init__(self):
+			if cls.__first_init:
+				return 
+			self.属性= 赋值
+			cls._-firset_init = True
+	异常
+周五：文件
+
+异常：程序中不正常的事件，导致程序无法正常的执行。
+	原理：python解释器，创建了该类型的异常对象，并抛出打断程序的执行。
+
+ValueError：
+TypeError：
+KeyError：
+IndexError：
+ZeroDiv...Error：
+Exception
+
+
+
+处理：
+	try..except..else..finally
+
+try:
+	可能产生异常的代码
+
+
+except 异常类型1：
+	
+
+except 异常类2：
+
+except （类型3，类型4）：
+
+excep Exception as resulst
+
+else：
+	没有异常执行此处
+
+finally：
+	如论是否产生异常，都执行此处
+
+
+异常的传递：
+	异常可以嵌套
+	异常可以传递：fun1()--->fun2()--->fun3()-->main()
+
+
+抛出异常：raise 异常对象
+	程序中可以自己抛出异常
+		ex = Exception（"msg"）
+		raise ex
+
+
+自定义异常：继承Exception或Error。就具有异常的功能
+
+
+文件：
+	文件：用于存储数据(持久化)
+		文件的后缀，代表了文件类型。
+	本质：都是二进制文件。
+
+		文本文件：
+			文本编辑器打开，查看数据
+
+		二进制文件：
+			图片，视频，
+
+操作步骤：
+step1：打开，或者文件对象
+file = open(filename, mode="rt,r,w,a,r+,w+,a+,rb,wb",encoding="gbk/utf-8")
+
+step2：操作文件对象，读取，写出
+	read()-->读取所有
+	read(num)-->读取数量
+	readline()-->读取一行
+	readlines()-->返回列表
+	for..in
+
+	write(str)
+	writelines()
+
+	tell()-->获取指针光标位置，距离文件开头的字节数
+	seek()-->设置指针位置，
+
+step3：关闭文件
+close()

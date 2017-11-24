@@ -3,7 +3,13 @@
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/20171124/exercise/demo1.txt" charset="GBK" />
     <file url="file://$PROJECT_DIR$/20171124/exercise/demo2.txt" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/20171124/exercise/english.txt" charset="GBK" />
     <file url="file://$PROJECT_DIR$/20171124/exercise/test.txt" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/20171124/work/english.txt" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/20171124/work/english_copy.txt" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/20171124/work/message.txt" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/20171124/work/saveChat.txt" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/20171124/work/wechat.txt" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/20171124/work/作业15.txt" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/20171124/work/本周总结.txt" charset="GBK" />
   </component>
 </project>

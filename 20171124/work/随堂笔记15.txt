@@ -1,0 +1,213 @@
+上节课回顾：
+单例模式：
+	一个类只允许产生一个对象。
+人类：
+	张三，李四，二狗。。。
+猫类：狗类，计算机类。。。
+音乐播放器：
+链接对象：
+
+class A:
+	pass
+
+
+
+a1 = A()
+a2 = A()
+a3 = A()
+...
+a1,a2,a3.....指向同一个内存地址的对象。
+
+创建对象：A(object)
+	类属性：__instance = None
+	类属性：__first_init = False
+
+	step1：开辟内存创建对象
+		__new__()---->object
+			if cls.__instance is None:
+				cls.__instance = object.__new__(cls)
+			return	cls.__instance
+
+	step2：调用init(self)---->object
+		__init__(self,参数):
+			if A.__first_init:
+				return 
+			self.属性= 参数
+			A.__first_init = True
+
+异常：
+	概念：程序运行时期，发生的不正常的事件，导致程序无法正常的执行。
+		python的解释器，在执行程序时，遇到不正常的事件：(分类)-->异常对象，并且抛出，打断程序的执行。
+
+
+处理：
+	捕获异常：
+		语法
+try:
+	可能产生异常
+	1.
+	2.   产生异常：python解释器创建该类型的异常的对象，并抛出
+	3.
+	4.
+	。。。
+
+
+except 异常类型:
+	pass
+except 异常类型2：
+	pass
+
+except Exception as result:
+	print(str(result))
+
+else:
+	try中没有产生。
+
+finally:
+	此处的代码，无论是否产生异常，都会被执行。
+	断开连接，关闭资源。。。。
+
+
+try：
+	1.
+	2.
+	try：
+		1.	
+		2.产生异常
+		
+	except 异常类型2：
+		pass
+
+
+except 异常类型1：
+	pass
+
+
+
+创建异常对象
+
+关键字：raise 对象
+	抛出异常对象
+
+
+概念：
+
+处理：
+	捕获：核心重点
+		try语句：
+try:
+	pass
+except 
+except
+
+except Exception
+
+else
+finally
+
+异常的传递：
+	1.嵌套：了解
+	2.函数 之间调用
+		a()-->b()-->c()-->main()
+
+
+主动抛出异常：
+	了解：源码
+
+	关键字：raise 异常对象
+
+自定义异常：自定义类的，用于异常类
+	自定义的类，继承：异常类：Exception，Error
+
+
+基于面向对象：
+异常类：class
+
+
+文件：
+	计算机：数据的存储。
+		硬盘：
+			盘符：C：系统盘，安装软件。D：E：F：G：
+			D：学习盘：代码，视频，图片。。。
+			E：娱乐盘：美女图片，电影，电视剧
+				电视剧：
+					美剧
+					清宫剧：
+					韩剧：思密达
+					抗日神剧：
+						亮剑第1集.mp4
+						亮剑第2集.mp4
+						。。
+						
+
+			文件夹：文件所在的目录，也就是位置。
+
+			文件：存储数据的。永久的。
+				根据后缀来区分文件的类型
+				xx.txt
+				xx.doc
+
+				xx.jpg,xx.png,xx.gif,xx.jpeg
+
+				xx.mp3,...
+				xx.mp4,
+				xx.rar,xx.zip...
+				xx.exe
+
+			数据库：永久的。
+				专门存储和管理的数据的库。
+			
+
+			分类：
+				文本类型：
+					文本的编辑器打开查看数据
+					例如：xx.txt,xx.py
+
+				二进制数据：
+					保存的数据，不是直接查看的，而是通过相应的软件来查看。
+					例如:图片，音频，视频，压缩，可执行。。
+
+			所有的文件的本质：都是二进制数据。
+
+
+windows：窗口，窗户
+
+01
+	ASCII：
+		a-->97
+		b-->98
+
+
+	中国：
+		字符集：编码
+		GBK：
+			a-->97
+			b-->98
+			
+			中-->20013
+			
+				
+		内存：瞬时数据。程序执行的过程中产生的数据
+
+
+
+
+文件的路径：	
+	相对路径：
+		参照物：相对
+		参照的路径：c:\Ruby
+			路径：pro\demo1.txt
+	
+	
+	绝对路径：从跟盘符开始。
+		C:\Ruby\pro\demo1.txt
+		C:\Ruby\pro\文件名
+		D:\aa\bb\cc\dd.txt
+	
+
+
+
+
+
+
+
