@@ -33,17 +33,21 @@ class MusicPlayer:
         return cls.__instance
 
     def __init__(self, name):
-        if MusicPlayer.__first_init:
-            return
+        # if MusicPlayer.__first_init:
+        #     return
 
         print("init方法。。。")
 
         self.name = name
 
-        MusicPlayer.__first_init = True
+        # MusicPlayer.__first_init = True
 
 
 player1 = MusicPlayer("网易云")
-player2 = MusicPlayer("网易云")
+
+player2 = MusicPlayer("网")
 print(player1)
+print(player1.name)
 print(player2)
+print(player2.name)
+
