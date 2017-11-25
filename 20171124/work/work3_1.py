@@ -4,7 +4,9 @@
 [],{}
 """
 
-#  这个撒懒，结果判断不了没有举办
+# 这个撒懒，结果判断不了没有举办
+
+
 # def product_list():
 #     file = open("message.txt", mode="r")
 #     list2 = []
@@ -15,7 +17,7 @@
 #         list2.append(str(content).split("|", 3))
 #     file.close()
 #     return list2
-#
+
 #
 # list2 = product_list()
 # while True:
@@ -25,13 +27,31 @@
 #             print("举办国家是%s 冠军国家是%s" % (li[1], li[2]))
 
 
-def produce():
+def product_list():
     file = open("message.txt", mode="r")
-    list1 = file.readlines(1)
+    list2 = []
+    while True:
+        content = file.readline()
+        if not content:
+            break
+        list2.append(str(content).split("|", 1))
     file.close()
+    return list2
 
 
-print(produce())
+list2 = product_list()
+dict1 = dict()
+for li in list2:
+    dict1[li[0]] = li[1]
+while True:
+    year = input("请输入年份：")
+    if year in dict1.keys():
+        list1 = dict1.get(year).strip("\n").split("|")
+        print("举办国家是%s 冠军国家是%s" % (list1[0], list1[1]))
+        # break
+    else:
+        print("这一年未举办")
+
 
 
 

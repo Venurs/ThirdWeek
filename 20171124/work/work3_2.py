@@ -12,7 +12,7 @@ while True:
         wechat = input("小红：")
         wechat = "小红：" + wechat + "\n"
     sign = not sign
-    if wechat.endswith("。。。\n"):
+    if wechat.endswith("。。。\n"):  # 输入"。。。"即可退出聊天
         chat.write(wechat)
         print("对方不想和你聊天，即将退出。。。")
         break
